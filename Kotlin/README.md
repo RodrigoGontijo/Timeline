@@ -57,7 +57,7 @@ Short summary of why the code is organized this way:
 - Lane allocation lives in the domain (GreedyLaneAllocator). It keeps the packing logic out of the UI.
 - ViewModel receives the allocator by injection and exposes events + lanes as UI state.
 - The UI only renders the lanes; layout size is proportional to days (as requested).
-- A legacy util (assignLanes) is kept as deprecated and delegates to the domain implementation.
+- A legacy util (assignLanes) is moved to another place and delegates to the domain implementation.
 
 Notes / trade-offs:
 - Greedy allocation is simple and fast; it’s not optimal for every pathological case.

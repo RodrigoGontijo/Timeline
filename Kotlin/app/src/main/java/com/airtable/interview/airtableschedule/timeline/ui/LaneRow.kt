@@ -38,18 +38,18 @@ fun LaneRow(
             .width(totalWidth)
     ) {
         var cursor = minStartMillis
-        lane.forEach { ev ->
-            val gapDays = TimeUtils.daysBetweenMillis(cursor, ev.startDate.time)
+        lane.forEach { event ->
+            val gapDays = TimeUtils.daysBetweenMillis(cursor, event.startDate.time)
             if (gapDays > 0) {
                 Spacer(modifier = Modifier.width(dayWidth * gapDays.toFloat()))
             }
 
-            val durationDays = max(1L, TimeUtils.daysBetweenMillis(ev.startDate.time, ev.endDate.time))
+            val durationDays = max(1L, TimeUtils.daysBetweenMillis(event.startDate.time, event.endDate.time))
 
             // delegate rendering to provided eventChip composable
-            eventChip(ev, durationDays, dayWidth, laneIndex, Modifier.width(dayWidth * durationDays.toFloat()))
+            eventChip(event, durationDays, dayWidth, laneIndex, Modifier.width(dayWidth * durationDays.toFloat()))
 
-            cursor = ev.endDate.time
+            cursor = event.endDate.time
         }
     }
 }
