@@ -7,4 +7,6 @@ import com.airtable.interview.airtableschedule.models.Event
  */
 data class TimelineUiState(
     val events: List<Event> = emptyList(),
+    val lanes: List<List<Event>> = emptyList(),
+    val selectedEventId: Int? = null,
 )
